@@ -104,11 +104,11 @@
             font-size: 2rem;
             font-weight: 200;
             color: #FDFCF7;
-            transition: all 1s;
+            transition: all 0.5s;
 
         }
 
-        .open .plus {
+        .open .faq .question .plus {
             transform: rotate(45deg);
         }
 
@@ -180,7 +180,8 @@
                         It predicts the next word based on context, which allows it to generate human-like responses.
                     </p>
                 </div>
-            </div </div>
+            </div>
+        </div> 
         </div>
         <script>
 
@@ -189,8 +190,14 @@
                 let question = faq.querySelector('.question');
                 let plus = faq.querySelector('.plus');
                 question.onclick = function () {
-                    faq.style.height = '250px';
-                    plus.style.transform = 'rotate(45deg)';
+                    if (faq.classList.contains('open')) {
+                        faq.classList.remove('open');
+                        plus.style.transform = 'rotate(0deg)';
+                    } else {
+                        faq.classList.add('open');
+                        plus.style.transform = 'rotate(45deg)';
+                    }
+
                 }
             })
 
